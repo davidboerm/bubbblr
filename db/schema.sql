@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS bubbblr_db;
+
+CREATE DATABASE bubbblr_db;
