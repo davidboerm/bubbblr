@@ -11,18 +11,18 @@ Chat.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // name: { //omit 
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     chat_text: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
+    // date_created: { //omit 
+    //   type: DataTypes.DATE,
+    //   allowNull: false,
+    //   defaultValue: DataTypes.NOW,
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -30,6 +30,13 @@ Chat.init(
         key: 'id',
       },
     },
+    tag_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'tag',
+        key: 'id',
+  }
+  },
   },
   {
     sequelize,

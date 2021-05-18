@@ -3,15 +3,27 @@ const Chat = require('./Chat');
 const Role = require('./Role');
 const Tag = require('./Tag');
 
-Chat.hasMany(User, {
+Chat.hasOne(User, {
   foreignKey: 'user_id',
 });
 
-Tag.belongsTo(Chat, {
+User.hasMany(Chat, {
+  foreignKey: 'user_id',
+});
+
+Chat.hasOne(Tag, {
+  foreignKey: 'chat_id',
+});
+
+Tag.hasMany(Chat, {
     foreignKey: 'chat_id',
 });
 
 Role.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+User.hasOne(Role, {
   foreignKey: 'user_id',
 });
 
