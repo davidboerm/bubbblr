@@ -1,3 +1,6 @@
+const router = require('express').Router();
+const { Role } = require('../../models');
+
 router.get('/', async (req, res) => {
 	try {
 		const roleData = await Role.findAll({});
@@ -59,3 +62,5 @@ router.delete('/:id', async (req, res) => {
 		res.status(500).json(err);
 	}
 });
+
+module.exports = router;
