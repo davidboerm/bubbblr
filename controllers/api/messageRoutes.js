@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const session = require('express-session');
 const { Message } = require('../../models');
 
 router.get('/', async (req, res) => {
