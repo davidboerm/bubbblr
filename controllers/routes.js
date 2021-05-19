@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
 			order: [ [ 'updatedAt', 'DESC' ] ]
 		});
 
-		const messages = messageData.map((post) => post.get({ plain: true }));
+		const messages = messageData.map((message) => message.get({ plain: true }));
 		res.render('login', { messages });
 	} catch (err) {
 		console.log(err);
