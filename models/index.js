@@ -1,30 +1,33 @@
 const User = require('./User');
-const Chat = require('./Chat');
+const Message = require('./Message');
 const Role = require('./Role');
 const Tag = require('./Tag');
 
-Chat.hasOne(User, {
-  foreignKey: 'user_id',
+Message.belongsTo(User, {
+	foreignKey: 'user_id',
+	onDelete: 'CASCADE'
 });
 
-User.hasMany(Chat, {
-  foreignKey: 'user_id',
+User.hasMany(Message, {
+	foreignKey: 'user_id'
 });
 
-Chat.hasOne(Tag, {
-  foreignKey: 'chat_id',
+Message.belongsTo(Tag, {
+	foreignKey: 'tag_id'
 });
 
-Tag.hasMany(Chat, {
-    foreignKey: 'chat_id',
+Tag.hasMany(Message, {
+	foreignKey: 'tag_id',
+	onDelete: 'CASCADE'
 });
 
 Role.belongsTo(User, {
-  foreignKey: 'user_id',
+	foreignKey: 'user_id',
+	onDelete: 'CASCADE'
 });
 
 User.hasOne(Role, {
-  foreignKey: 'user_id',
+	foreignKey: 'user_id'
 });
 
-module.exports = { User, Chat, Role, Tag };
+module.exports = { User, Message, Role, Tag };
