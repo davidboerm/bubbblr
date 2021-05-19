@@ -3,12 +3,12 @@ const { Message } = require('../models');
 
 router.get('/', async (req, res) => {
 	try {
-		const messageData = await Chat.findAll({
+		const messageData = await Message.findAll({
 			order: [ [ 'updatedAt', 'DESC' ] ]
 		});
 
 		const messages = messageData.map((post) => post.get({ plain: true }));
-		res.render('all', { messages });
+		res.render('login', { messages });
 	} catch (err) {
 		console.log(err);
 		res.status(500).json(err);

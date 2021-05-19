@@ -13,13 +13,11 @@ app.use((req, res, next) => {
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const sequelize = require('./config/connection');
-const hbs = exphbs.create({});
 
 const routes = require('./controllers');
 //UNCOMMENT when adding authorization
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 
 const hbs = exphbs.create({ helpers });
@@ -32,8 +30,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
-sequelize.sync({ force: false });
-
 io.on('connection', (socket) => {
 	socket.emit('initialize');
 	socket.on('inputtedMessage', (msg) => {
@@ -43,6 +39,8 @@ io.on('connection', (socket) => {
 	console.log('a user connected');
 });
 
-server.listen(PORT, () => {
-	console.log('listening on port');
+sequelize.sync({ force: false }).then(() => {
+	server.listen(PORT, () => {
+		console.log('listening on port');
+	});
 });
