@@ -39,7 +39,6 @@ const io = require('socket.io')(server);
 io.on('connection', (socket) => {
 	socket.emit('initialize');
 	socket.on('inputtedMessage', (msg) => {
-		console.log(msg);
 		io.emit('sentMessage', msg);
 	});
 	console.log('a user connected');

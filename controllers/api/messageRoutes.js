@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Message } = require('../../models');
+const { Message, User } = require('../../models');
 
 router.get('/', async (req, res) => {
 	try {
@@ -15,15 +15,24 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
 	try {
-		const messageData = await Message.create({
-			chat_text: req.body.chat_text,
-			//UNCOMMENT after adding authorization
-			user_id: req.session.user_id
-			//UNCOMMENT after adding tags feature
-			// tag_id: req.session.selectedTag
-		});
+		const messageData = await Message.create(
+			{
+				chat_text: req.body.chat_text,
+				//UNCOMMENT after adding authorization
+				user_id: req.session.user_id
+				//UNCOMMENT after adding tags feature
+				// tag_id: req.session.selectedTag
+			},
+			{
+				include: [
+					{
+						model: User
+					}
+				]
+			}
+		);
 
-		return res.status(200).json(messageData);
+		res.status(200).json(messageData);
 	} catch (err) {
 		console.log(err);
 		res.status(500).json(err);
