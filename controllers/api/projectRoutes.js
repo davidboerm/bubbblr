@@ -3,7 +3,18 @@ const { Project } = require('../../models');
 
 router.get('/', async (req, res) => {
 	try {
-		const projectData = await Project.findAll({});
+		const projectData = await Project.findAll({
+			include: [
+				{
+					model: User,
+					exclude: [ 'password' ]
+				},
+				{
+					model: Message,
+					include: [ { model: User, exclude: [ 'password' ] }, { model: Tag } ]
+				}
+			]
+		});
 
 		const projects = projectData.map((project) => project.get({ plain: true }));
 		res.status(200).json(projects);
@@ -18,8 +29,8 @@ router.post('/', (req, res) => {
 		const projectData = Project.create({
 			name: req.body.name,
 			description: req.session.logged_in,
-            message_id: req.session.message_id,
-            user_id: req.session.user_id
+			message_id: req.session.message_id,
+			user_id: req.session.user_id
 		});
 		console.log(projectData);
 		res.status(200).json(projectData);
