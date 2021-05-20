@@ -32,7 +32,7 @@ Project.init(
 		timestamps: true,
 		freezeTableName: true,
 		underscored: true,
-		modelName: 'message'
+		modelName: 'project'
 	}
 );
 
