@@ -1,0 +1,51 @@
+const router = require('express').Router();
+const { Project } = require('../../models');
+
+router.get('/', async (req, res) => {
+	try {
+		const projectData = await Project.findAll({});
+
+		const projects = projectData.map((project) => project.get({ plain: true }));
+		res.status(200).json(projects);
+	} catch (err) {
+		console.log(err);
+		res.status(500).json(err);
+	}
+});
+
+router.post('/', (req, res) => {
+	try {
+		const projectData = Project.create({
+			name: req.body.name,
+			description: req.session.logged_in,
+            message_id: req.session.message_id,
+            user_id: req.session.user_id
+		});
+		console.log(projectData);
+		res.status(200).json(projectData);
+	} catch (err) {
+		console.log(err);
+		res.status(500).json(err);
+	}
+});
+
+router.put('/:id', async (req, res) => {
+	try {
+		const projectData = await Project.update(req.body, {
+			where: {
+				id: req.params.id
+			}
+		});
+
+		if (!projectData[0]) {
+			res.status(404).json({ project: 'No project found with this ID' });
+			return;
+		}
+
+		res.status(200).json(projectData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+module.exports = router;
