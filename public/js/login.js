@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
 		});
 
 		if (response.ok) {
-			document.location.replace('/');
+			document.location.replace('/chat');
 		} else {
 			alert('Failed to log in.');
 		}
@@ -25,20 +25,20 @@ const signupFormHandler = async (event) => {
 	const name = document.querySelector('#username-signup').value.trim();
 	const email = document.querySelector('#email-signup').value.trim();
 	const password = document.querySelector('#password-signup').value.trim();
-	const leaderCheck = document.querySelector('#leader-check');
-	let is_leader = false;
-	if (leaderCheck.checked) {
-		is_leader = true;
-	}
+	const is_leader = document.querySelector('#leader-check').checked;
+
 	if (name && email && password) {
+		console.log('is_leader: ' + is_leader);
 		const response = await fetch('/api/users', {
 			method: 'POST',
-			body: JSON.stringify({ name, email, password, is_leader }),
+			body: JSON.stringify({ name, email, is_leader, password }),
 			headers: { 'Content-Type': 'application/json' }
 		});
 
-		if (response.ok) {
-			document.location.replace('/');
+		if (response.ok && is_leader) {
+			document.location.replace('/setup');
+		} else if (response.ok && !is_leader) {
+			document.location.replace('/chat');
 		} else {
 			alert('Failed to sign up.');
 		}
