@@ -13,18 +13,17 @@ router.get('/', async (req, res) => {
 	}
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
 	try {
-		console.log('request body ' + req.body);
-		const messageData = Message.create({
+		const messageData = await Message.create({
 			chat_text: req.body.chat_text,
 			//UNCOMMENT after adding authorization
-			user_id: req.session.logged_in
+			user_id: req.session.user_id
 			//UNCOMMENT after adding tags feature
 			// tag_id: req.session.selectedTag
 		});
-		console.log(messageData);
-		res.status(200).json(messageData);
+
+		return res.status(200).json(messageData);
 	} catch (err) {
 		console.log(err);
 		res.status(500).json(err);

@@ -11,10 +11,10 @@
  </div>
  <div id="messages">
  {{#each messages as |message|}}
- <h4> {{message.tag.tag_name}} </h4>
-<h4> {{message.user.name}} </h4>
-<p>  {{message.chat_text}} </p>
-<p>  {{message.updatedAt}} </p>
+ {{!-- <h4> {{message.tag.tag_name}} </h4> --}}
+    <h4> {{message.user.name}} </h4>
+    <p>  {{message.chat_text}} </p>
+    <p>  {{message.updatedAt}} </p>
 
  {{/each}}
 </div>

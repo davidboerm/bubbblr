@@ -19,16 +19,17 @@
                 <a class="navbar-brand" href="#">
                     <img src="/assets/bubbblrLogo-01.png" alt="" width="40%" height="">
                 </a>
+                
+
+                {{#if logged_in}}
                 <div class="buttons">
                     <div class="row justify-content-end">
                         <div class="col-4">
-                            <button id="login-btn" type="button" class="btn btn-outline-primary me-2">Login</button>
-                        </div>
-                        <div class="col-8">
-                            <button id="signup-btn" type="button primary" class="btn btn-primary">Sign-up</button>
+                            <button id="logout" type="button" class="btn btn-outline-primary me-2">Log-out</button>
                         </div>
                     </div>
                 </div>
+                {{/if}}
             </div>
         </nav>
 
@@ -53,6 +54,11 @@
     </script>
     <script src="/js/message.js"></script>
     <script src="/js/login.js"></script>
+     {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{else}}
+    <script src="/js/login.js"></script>
+    {{/if}}
     {{!-- <script src="/js/login.js"></script>
     <script src="/js/logout.js"></script> --}}
 </body>
