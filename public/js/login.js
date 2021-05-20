@@ -28,7 +28,6 @@ const signupFormHandler = async (event) => {
 	const is_leader = document.querySelector('#leader-check').checked;
 
 	if (name && email && password) {
-		console.log('is_leader: ' + is_leader);
 		const response = await fetch('/api/users', {
 			method: 'POST',
 			body: JSON.stringify({ name, email, is_leader, password }),

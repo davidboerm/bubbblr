@@ -1,22 +1,24 @@
 function addMessages(message) {
 	$('#messages').prepend(`
-      <p>  ${message.chat_text} </p>`);
+	<p>  ${message.user.name} </p>
+      <p>  ${message.chat_text} </p>
+`);
 }
 
 const sendMessage = async (event) => {
 	event.preventDefault();
-
 	const chat_text = document.querySelector('#message').value;
-	try {
-		const response = await fetch('/api/messages', {
-			method: 'POST',
-			body: JSON.stringify({ chat_text }),
-			headers: { 'Content-Type': 'application/json' }
+
+	const response = await fetch('/api/messages', {
+		method: 'POST',
+		body: JSON.stringify({ chat_text }),
+		headers: { 'Content-Type': 'application/json' }
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data.user_id);
+			// socket.emit('inputtedMessage', data.user_id, data.chat_text, data.createdAt);
 		});
-	} catch (err) {
-		console.log(err);
-	}
-	socket.emit('inputtedMessage', { chat_text });
 };
 
 document.querySelector('#send').addEventListener('click', sendMessage);
