@@ -12,28 +12,26 @@ const initializeMessages = async (data) => {
 
 function addMessages(message) {
 	$('#messages').prepend(`
-      <h4> ${message.name} </h4>
-      <p>  ${message.text} </p>`);
+      <p>  ${message.chat_text} </p>`);
 }
 
 const sendMessage = async (event) => {
 	event.preventDefault();
 
-	const name = document.querySelector('#name').value;
-	const text = document.querySelector('#message').value;
+	const chat_text = document.querySelector('#message').value;
 	try {
-		const response = await fetch('/', {
+		const response = await fetch('/api/messages', {
 			method: 'POST',
-			body: JSON.stringify({ name, text }),
+			body: JSON.stringify({ chat_text }),
 			headers: { 'Content-Type': 'application/json' }
 		});
 	} catch (err) {
 		console.log(err);
 	}
-	socket.emit('inputtedMessage', { name, text });
+	socket.emit('inputtedMessage', { chat_text });
 };
 
 document.querySelector('#send').addEventListener('click', sendMessage);
 
 socket.on('sentMessage', addMessages);
-socket.on('initialize', initializeMessage);
+socket.on('initialize', initializeMessages);
