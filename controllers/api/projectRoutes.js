@@ -28,9 +28,10 @@ router.post('/', (req, res) => {
 	try {
 		const projectData = Project.create({
 			name: req.body.name,
-			description: req.session.logged_in,
-			message_id: req.session.message_id,
-			user_id: req.session.user_id
+			description: req.body.description,
+			message_id: req.body.message_id,
+			user_id: req.body.user_id,
+			leader_id: req.session.user_id
 		});
 		console.log(projectData);
 		res.status(200).json(projectData);
