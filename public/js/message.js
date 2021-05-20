@@ -1,15 +1,3 @@
-const initializeMessages = async (data) => {
-	try {
-		const response = await fetch('/', {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' }
-		});
-		console.log(response);
-	} catch (err) {
-		console.log(err);
-	}
-};
-
 function addMessages(message) {
 	$('#messages').prepend(`
       <p>  ${message.chat_text} </p>`);
@@ -34,4 +22,3 @@ const sendMessage = async (event) => {
 document.querySelector('#send').addEventListener('click', sendMessage);
 
 socket.on('sentMessage', addMessages);
-socket.on('initialize', initializeMessages);

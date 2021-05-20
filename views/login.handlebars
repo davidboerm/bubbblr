@@ -1,22 +1,18 @@
 <div class="row justify-space-between-md">
   <div class="login-card">
-    <form class="form-signin">
+    <form class="form login-form">
       <img class="mb-4" src="/assets/bubblerLogo-01" alt="" width="" height="">
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput email-login" placeholder="name@example.com">
+        <input type="email" class="form-control" id="email-login" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword password-login" placeholder="Password">
+        <input type="password" class="form-control" id="password-login" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      
+      <button class="w-100 btn btn-lg btn-primary login-form" type="submit">Sign in</button>
 
     </form>
   </div>
@@ -25,23 +21,27 @@
     <form class="form signup-form">
       <div class="form-floating">
         <label for="username-signup">Username:</label>
-        <input class="form-input form-control" type="text" id="username-signup floatingPassword" />
+        <input class="form-input form-control" type=" text" id="username-signup" />
       </div>
       <div class="form-floating">
         <label for="email-signup">Email:</label>
-        <input class="form-input form-control" type=" text" id="email-signup floatingPassword" />
+        <input class="form-input form-control" type=" text" id="email-signup" />
       </div>
       <div class="form-floating">
         <label for="password-signup">Password:</label>
-        <input class="form-input form-control" type="password" id="password-signup floatingPassword" />
+        <input class="form-input form-control" type="password" id="password-signup" />
+      </div>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" id="leader-check" value="leader"> Do you want to be a leader?
+        </label>
       </div>
       <div class="form-group">
-        <button class="w-100 btn btn-lg btn-primary" type="submit">signup</button>
+        <button class="w-100 btn btn-lg btn-primary signup-form" type="submit">signup</button>
         <p class="mt-5 mb-3">&copy; 2021</p>
       </div>
+      
     </form>
   </div>
 
 </div>
-
-<script src="/js/login.js"></script>

@@ -26,14 +26,14 @@ const signupFormHandler = async (event) => {
 	const email = document.querySelector('#email-signup').value.trim();
 	const password = document.querySelector('#password-signup').value.trim();
 	const leaderCheck = document.querySelector('#leader-check');
-	let isLeader = false;
+	let is_leader = false;
 	if (leaderCheck.checked) {
-		isLeader = true;
+		is_leader = true;
 	}
 	if (name && email && password) {
 		const response = await fetch('/api/users', {
 			method: 'POST',
-			body: JSON.stringify({ name, email, password, isLeader }),
+			body: JSON.stringify({ name, email, password, is_leader }),
 			headers: { 'Content-Type': 'application/json' }
 		});
 
