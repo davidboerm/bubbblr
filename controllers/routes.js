@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Message, User, Tag } = require('../models');
+const { Message, User, Tag, Project } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -81,6 +81,20 @@ router.get('/project/:id', withAuth, async (req, res) => {
 
 		const project = projectData.get({ plain: true });
 		res.render('project', { project, logged_in: req.session.logged_in, user_id: req.session.user_id });
+	} catch (err) {
+		console.log(err);
+		res.status(500).json(err);
+	}
+});
+
+router.get('/outline', withAuth, async (req, res) => {
+	try {
+		const projectData = await Project.findAll({
+			order: [ [ 'updatedAt', 'DESC' ] ]
+		});
+
+		const projects = projectData.map((project) => project.get({ plain: true }));
+		res.render('outline', { projects, name: req.session.name, description: req.session.description, message_id: req.session.message_id  });
 	} catch (err) {
 		console.log(err);
 		res.status(500).json(err);
