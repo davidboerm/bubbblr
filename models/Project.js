@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Message extends Model {}
+class Project extends Model {}
 
-Message.init(
+Project.init(
 	{
 		id: {
 			type: DataTypes.INTEGER,
@@ -12,20 +12,17 @@ Message.init(
 			autoIncrement: true
 		},
 
-		chat_text: {
+		name: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		description: {
 			type: DataTypes.STRING
 		},
-		user_id: {
+		message_id: {
 			type: DataTypes.INTEGER,
 			references: {
-				model: 'user',
-				key: 'id'
-			}
-		},
-		tag_id: {
-			type: DataTypes.INTEGER,
-			references: {
-				model: 'tag',
+				model: 'message',
 				key: 'id'
 			}
 		}
@@ -39,4 +36,4 @@ Message.init(
 	}
 );
 
-module.exports = Message;
+module.exports = Project;

@@ -1,5 +1,5 @@
-/* body {
-    background: url('/assets/bubbleBG.jpeg') no-repeat center center fixed;
+body {
+    background: url('/assets/css/bubbleBG.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -9,7 +9,7 @@
 footer {
     text-align: center;
     padding: 3px;
-} */
+} 
 
 
 
@@ -42,6 +42,3 @@ footer {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   } */
-
-  
-
