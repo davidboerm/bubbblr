@@ -1,6 +1,20 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+router.get('/:id', async (req, res) => {
+	try {
+		const userData = await User.findByPk(req.params.id, {
+			exclude: [ 'password', 'email' ]
+		});
+		console.log('userData ' + userData);
+		const users = userData.get({ plain: true });
+		// console.log('users ' + users);
+		res.status(200).json(users);
+	} catch (err) {
+		console.log(err);
+		res.status(500).json(err);
+	}
+});
 router.post('/', async (req, res) => {
 	try {
 		const userData = await User.create({

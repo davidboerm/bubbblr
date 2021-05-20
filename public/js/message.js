@@ -1,7 +1,19 @@
-function addMessages(message) {
+async function addMessages(message) {
+	let userName;
+	const response = await fetch(`/api/users/${message.user_id}`, {
+		method: 'GET',
+		headers: { 'Content-Type': 'application/json' }
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			userName = data.name;
+			// socket.emit('inputtedMessage', data.user_id, data.chat_text, data.createdAt);
+		});
+
 	$('#messages').prepend(`
-	<p>  ${message.user.name} </p>
-      <p>  ${message.chat_text} </p>
+	<h4> ${userName} </h4>
+    <p>  ${message.chat_text} </p>
+    <p>  ${message.updatedAt} </p>
 `);
 }
 
@@ -16,8 +28,7 @@ const sendMessage = async (event) => {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(data.user_id);
-			// socket.emit('inputtedMessage', data.user_id, data.chat_text, data.createdAt);
+			socket.emit('inputtedMessage', data);
 		});
 };
 
