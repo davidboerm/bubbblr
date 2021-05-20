@@ -3,7 +3,16 @@ const { Message, User } = require('../../models');
 
 router.get('/', async (req, res) => {
 	try {
-		const messageData = await Message.findAll({});
+		const messageData = await Message.findAll({
+			include: [
+				{
+					model: User,
+					exclude: [ 'password' ],
+					attributes: [ 'name' ]
+				}
+			],
+			order: [ [ 'updatedAt', 'DESC' ] ]
+		});
 
 		const messages = messageData.map((message) => message.get({ plain: true }));
 		res.status(200).json(messages);
@@ -15,22 +24,13 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
 	try {
-		const messageData = await Message.create(
-			{
-				chat_text: req.body.chat_text,
-				//UNCOMMENT after adding authorization
-				user_id: req.session.user_id
-				//UNCOMMENT after adding tags feature
-				// tag_id: req.session.selectedTag
-			},
-			{
-				include: [
-					{
-						model: User
-					}
-				]
-			}
-		);
+		const messageData = await Message.create({
+			chat_text: req.body.chat_text,
+			//UNCOMMENT after adding authorization
+			user_id: req.session.user_id
+			//UNCOMMENT after adding tags feature
+			// tag_id: req.session.selectedTag
+		});
 
 		res.status(200).json(messageData);
 	} catch (err) {
