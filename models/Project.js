@@ -18,13 +18,6 @@ Project.init(
 		},
 		description: {
 			type: DataTypes.STRING
-		},
-		message_id: {
-			type: DataTypes.INTEGER,
-			references: {
-				model: 'message',
-				key: 'id'
-			}
 		}
 	},
 	{
@@ -32,7 +25,7 @@ Project.init(
 		timestamps: true,
 		freezeTableName: true,
 		underscored: true,
-		modelName: 'message'
+		modelName: 'project'
 	}
 );
 
