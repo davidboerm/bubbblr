@@ -28,7 +28,7 @@ User.init(
 				isEmail: true
 			}
 		},
-		isLeader: {
+		is_leader: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
 			defaultValue: false
