@@ -44,25 +44,23 @@ router.get('/setup', withAuth, async (req, res) => {
 	}
 });
 
-router.get('/chat', withAuth, async (req, res) => {
+router.get('/project/:id', withAuth, async (req, res) => {
 	try {
-		const messageData = await Message.findAll({
+		const projectData = await Project.findByPk(req.params.id, {
 			include: [
 				{
 					model: User,
-					exclude: [ 'password' ],
-					attributes: [ 'name' ]
+					exclude: [ 'password' ]
 				},
 				{
-					model: Tag,
-					attributes: [ 'tag_name' ]
+					model: Message,
+					include: [ { model: User, exclude: [ 'password' ] }, { model: Tag } ]
 				}
-			],
-			order: [ [ 'updatedAt', 'DESC' ] ]
+			]
 		});
 
-		const messages = messageData.map((message) => message.get({ plain: true }));
-		res.render('chat', { messages, logged_in: req.session.logged_in, user_id: req.session.user_id });
+		const project = projectData.get({ plain: true });
+		res.render('project', { project, logged_in: req.session.logged_in, user_id: req.session.user_id });
 	} catch (err) {
 		console.log(err);
 		res.status(500).json(err);
