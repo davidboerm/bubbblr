@@ -17,11 +17,11 @@ router.post('/', (req, res) => {
 	try {
 		console.log('request body ' + req.body);
 		const messageData = Message.create({
-			chat_text: req.body.chat_text
+			chat_text: req.body.chat_text,
 			//UNCOMMENT after adding authorization
-			//user_id: req.session.logged_in,
+			user_id: req.session.logged_in
 			//UNCOMMENT after adding tags feature
-			//tag_id: req.session.selectedTag
+			// tag_id: req.session.selectedTag
 		});
 		console.log(messageData);
 		res.status(200).json(messageData);
