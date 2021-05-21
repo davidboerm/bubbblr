@@ -27,9 +27,10 @@ router.post('/', async (req, res) => {
 		const messageData = await Message.create({
 			chat_text: req.body.chat_text,
 			//UNCOMMENT after adding authorization
-			user_id: req.session.user_id
+			user_id: req.session.user_id,
 			//UNCOMMENT after adding tags feature
 			// tag_id: req.session.selectedTag
+			project_id: req.session.currentProjectId
 		});
 
 		res.status(200).json(messageData);

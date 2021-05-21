@@ -20,14 +20,12 @@ router.post('/', async (req, res) => {
 		const userData = await User.create({
 			name: req.body.name,
 			email: req.body.email,
-			is_leader: req.body.is_leader,
 			password: req.body.password
 		});
 		req.session.save(() => {
 			req.session.logged_in = true;
 			req.session.user_id = userData.id;
 			req.session.name = userData.name;
-			req.session.is_leader = userData.is_leader;
 			res.status(200).json(userData);
 		});
 	} catch (err) {
@@ -56,7 +54,6 @@ router.post('/login', async (req, res) => {
 			req.session.logged_in = true;
 			req.session.user_id = userData.id;
 			req.session.name = userData.name;
-			req.session.is_leader = userData.is_leader;
 			res.json({ user: userData, message: 'Logged in!' });
 		});
 	} catch (err) {

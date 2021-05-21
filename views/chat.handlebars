@@ -10,7 +10,7 @@
  <button id="send" class="btn btn-success">Send</button>
  </div>
  <div id="messages">
- {{#each messages as |message|}}
+ {{#each project.messages as |message|}}
  {{!-- <h4> {{message.tag.tag_name}} </h4> --}}
     <h4> {{message.user.name}} </h4>
     <p>  {{message.chat_text}} </p>
@@ -19,4 +19,4 @@
  {{/each}}
 </div>
 </div>
-<script src="/js/message.js"></script>
+
