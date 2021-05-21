@@ -18,7 +18,7 @@
                 <a class="navbar-brand" href="/">
                     <img src="/public/assets/bubbblrLogo.png" alt="bubbblr logo" width="100%" height="">
                 </a>
-                <!-- {{#if logged_in}} -->
+             {{#if logged_in}}
                 <div class="buttons">
                     <div class="row justify-content-end">
                         <div class="col">
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- {{/if}} -->
+                {{/if}}
             </div>
         </nav>
         <!-- Div for handlebars views -->
@@ -63,8 +63,8 @@
     <script src="/js/login.js"></script>
     {{/if}}
 
-    {{!-- <script src="/js/login.js"></script>
-    <script src="/js/logout.js"></script> --}}
+    {{<script src="/js/login.js"></script>
+    <script src="/js/logout.js"></script>}}
 </body>
 
 </html>
