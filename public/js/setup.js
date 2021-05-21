@@ -8,8 +8,16 @@ const tagSubmit = (event) => {
 	if (tagCount < 6) {
 		console.log(this.tagCount);
 		this.tagCount++;
-		$('.tag-div').append(`
-		<h4 class = "new-tag color-${tagCount}">${tag_name}</h4>`);
+		$('.tag-list').append(`<li class="list-group-item">
+		<h5 class="new-tag" style="float: left;">${tag_name}</h5>
+		<button type="button" class="btn btn-danger tag-remove" id="tag-remove" style="float: right;">Remove</button>
+		</li>`);
+		$('.tag-remove').click(function(event) {
+			event.preventDefault();
+			console.log('tagRemove is running');
+			this.tagCount--;
+			$(this).closest('li').remove();
+		});
 	} else {
 		alert('Cannot add more tags');
 	}
@@ -44,4 +52,4 @@ const projectSetup = async (event) => {
 };
 
 document.querySelector('.new-project-form').addEventListener('submit', projectSetup);
-document.querySelector('.tag-input').addEventListener('click', tagSubmit);
+document.querySelector('.tag-submit').addEventListener('click', tagSubmit);
