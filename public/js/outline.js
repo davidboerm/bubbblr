@@ -10,6 +10,6 @@ async function outlineHandeler(project) {
 		});
 	$('#projects').prepend(`
 	<h4> ${projectName} </h4>
-    <p>  ${project.user_id} </p>
+    <p>  ${project.message} </p>
     `);
 }
