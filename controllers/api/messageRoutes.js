@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
 			//UNCOMMENT after adding authorization
 			user_id: req.session.user_id,
 			//UNCOMMENT after adding tags feature
-			// tag_id: req.session.selectedTag
+			tag_id: req.session.selectedTag,
 			project_id: req.session.currentProjectId
 		});
 
