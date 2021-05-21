@@ -33,11 +33,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 const http = require('http');
+const { Project } = require('./models');
 const server = http.createServer(app);
 const io = require('socket.io')(server);
 
 io.on('connection', (socket) => {
-	socket.emit('initialize');
 	socket.on('inputtedMessage', (msg) => {
 		io.emit('sentMessage', msg);
 	});

@@ -1,25 +1,28 @@
 
 <div class="container">
- <br>
- <div class="jumbotron">
- <h1 class="display-4">Send Message</h1>
- <br>
- <textarea id = "message" class="form-control" placeholder="Your Message Here" onfocus="this.value=''">
-</textarea>
- <br>
- <button id="send" class="btn btn-success">Send</button>
- </div>
-
+ 
  <div id="messages">
  {{#each project.messages as |message|}}
  {{!-- <h4> {{message.tag.tag_name}} </h4> --}}
-    <h4> {{message.user.name}} </h4>
-    <p>  {{message.chat_text}} </p>
-    <p>  {{message.updatedAt}} </p>
+   
+      <div class= "chat-bubble">
 
+       <h4>{{message.chat_text}} </h4>
+      <h6> Posted by: {{message.user.name}} </h6>
+      <p>  {{format_date message.createdAt}} at {{format_time message.createdAt}} </p>
+    </div>
+    
  {{/each}}
 </div>
+
+<div class="row chat-bar">
+
+   <br>
+ <textarea id = "message" class="form-control" placeholder="Your Message Here">
+   </textarea>
+ <br>
+ <button id="send" class="btn btn-success">Send</button>
+<br>
+ </div>
 </div>
-
-
 
