@@ -5,12 +5,19 @@ body {
   background-size: cover;
   -o-background-size: cover;
 }
+
+main {
+padding-bottom: 100px;
+}
+
 /* Setup form styles */
 
 .welcome {
   color: white;
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-weight: bold;
 }
+
 /* chat view styles */
 
 .chat-window {
@@ -29,19 +36,17 @@ body {
   color: white;
 }
 
-.checkbox {
-  color: white;
-}
+
 .form-floating:focus-within {
   z-index: 2;
 }
-.copyright p {
+.copyright span {
   color: white;
   font-size: x-large;
   
 }
 footer {
-  position: absolute;
+  
     bottom: 0;
     width: 100%;
     height: 60px;
@@ -51,3 +56,9 @@ footer {
 }
 
 /* Dashboard */
+
+.dash-card {margin-top: 3rem;}
+.project-cards {
+  min-width: fit-content;
+  max-width: 150px;
+}
