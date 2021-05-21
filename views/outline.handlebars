@@ -5,8 +5,17 @@
  <br>
  <div id="projects">
 
+<<<<<<< HEAD
     <h4> {{projectName}} </h4>
     <p>  {{project.user_id}} </p>
+=======
+    <h4> {{project.name}} </h4>
+    <p>  {{project.description}} </p>
+    
+    {{#each project.messages as |message|}}
+      <h4>{{message.user.name}}</h4>
+   {{/each}}
+>>>>>>> 8b21686b522fc4d39bd4e20c44e5e0e7946a8f06
 
 </div>
 </div>
