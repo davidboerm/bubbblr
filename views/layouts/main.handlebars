@@ -7,7 +7,7 @@
     <title>bubbblr</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
 </head>
 
 <body>
@@ -16,9 +16,9 @@
         <nav class="navbar me-auto mb-2 mb-lg-0 navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <img src="/assets/bubbblrLogo.png" alt="" width="40%" height="">
+                    <img src="/public/assets/bubbblrLogo.png" alt="bubbblr logo" width="100%" height="">
                 </a>
-                {{#if logged_in}}
+                <!-- {{#if logged_in}} -->
                 <div class="buttons">
                     <div class="row justify-content-end">
                         <div class="col">
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                {{/if}}
+                <!-- {{/if}} -->
             </div>
         </nav>
         <!-- Div for handlebars views -->
@@ -54,15 +54,15 @@
     <script>
         var socket = io();
     </script>
-    
+
     <script src="/js/message.js"></script>
     <script src="/js/setup.js"></script>
-     {{#if logged_in}}
+    {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{else}}
     <script src="/js/login.js"></script>
     {{/if}}
-    
+
     {{!-- <script src="/js/login.js"></script>
     <script src="/js/logout.js"></script> --}}
 </body>
