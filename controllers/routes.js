@@ -60,8 +60,9 @@ router.get('/project/:id', withAuth, async (req, res) => {
 			include: [
 				{
 					model: Message,
-					include: [ { model: User, exclude: [ 'password' ] }, { model: Tag } ]
-				}
+					include: [ { model: User, exclude: [ 'password' ] }, { model: Tag, attributes: [ 'tag_name' ] } ]
+				},
+				{ model: Tag, attributes: [ 'tag_name' ] }
 			]
 		});
 
@@ -82,9 +83,13 @@ router.get('/outline/:id', withAuth, async (req, res) => {
 			include: [
 				{
 					model: Message,
-					include: [ { model: User, exclude: [ 'password' ], attributes: [ 'name' ] }, { model: Tag } ],
+					include: [
+						{ model: User, exclude: [ 'password' ], attributes: [ 'name' ] },
+						{ model: Tag, attributes: [ 'tag_name' ] }
+					],
 					attributes: [ 'chat_text', 'createdAt' ]
-				}
+				},
+				{ model: Tag, attributes: [ 'tag_name' ] }
 			]
 		});
 
