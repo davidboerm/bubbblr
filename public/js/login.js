@@ -4,6 +4,7 @@ const loginFormHandler = async (event) => {
 	const email = document.querySelector('#email-login').value.trim();
 	const password = document.querySelector('#password-login').value.trim();
 
+	console.log('clicked');
 	if (email && password) {
 		const response = await fetch('/api/users/login', {
 			method: 'POST',
@@ -12,7 +13,7 @@ const loginFormHandler = async (event) => {
 		});
 
 		if (response.ok) {
-			document.location.replace('/chat');
+			// document.location.replace('/chat');
 		} else {
 			alert('Failed to log in.');
 		}
