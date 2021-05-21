@@ -24,9 +24,9 @@ router.get('/', async (req, res) => {
 	}
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
 	try {
-		const projectData = Project.create({
+		const projectData = await Project.create({
 			name: req.body.name,
 			description: req.body.description,
 			message_id: req.body.message_id,
