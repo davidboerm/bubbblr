@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
 		console.log('request body ' + req.body);
 		const tagData = Tag.create({
 			tag_name: req.body.tag_name,
-			message_id: req.body.message_id
+			project_id: req.body.project_id
 			//UNCOMMENT after adding authorization
 			//user_id: req.session.logged_in
 		});

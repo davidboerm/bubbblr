@@ -4,13 +4,10 @@ const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
 	try {
-		const messageData = await Message.findAll({
-			order: [ [ 'updatedAt', 'DESC' ] ]
-		});
+		const projectData = await Project.findAll({});
 
-		const messages = messageData.map((message) => message.get({ plain: true }));
-
-		res.render('dashboard', { messages, logged_in: req.session.logged_in, user_id: req.session.user_id });
+		const projects = projectData.map((project) => project.get({ plain: true }));
+		res.render('dashboard', { projects, logged_in: req.session.logged_in, user_id: req.session.user_id });
 	} catch (err) {
 		console.log(err);
 		res.status(500).json(err);
@@ -79,18 +76,23 @@ router.get('/project/:id', withAuth, async (req, res) => {
 	}
 });
 
-router.get('/outline', withAuth, async (req, res) => {
+router.get('/outline/:id', withAuth, async (req, res) => {
 	try {
-		const projectData = await Project.findAll({
-			order: [ [ 'updatedAt', 'DESC' ] ]
+		const projectData = await Project.findByPk(req.params.id, {
+			include: [
+				{
+					model: Message,
+					include: [ { model: User, exclude: [ 'password' ], attributes: [ 'name' ] }, { model: Tag } ],
+					attributes: [ 'chat_text', 'createdAt' ]
+				}
+			]
 		});
 
-		const projects = projectData.map((project) => project.get({ plain: true }));
+		const project = projectData.get({ plain: true });
 		res.render('outline', {
-			projects,
-			name: req.session.name,
-			description: req.session.description,
-			message_id: req.session.message_id
+			project,
+			logged_in: req.session.logged_in,
+			user_id: req.session.user_id
 		});
 	} catch (err) {
 		console.log(err);

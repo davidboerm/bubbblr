@@ -14,6 +14,13 @@ Tag.init(
 		tag_name: {
 			type: DataTypes.STRING,
 			defaultValue: 'tools, api, concepts, goals'
+		},
+		project_id: {
+			type: DataTypes.INTEGER,
+			references: {
+				model: 'project',
+				id: 'id'
+			}
 		}
 	},
 	{
