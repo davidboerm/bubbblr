@@ -1,53 +1,83 @@
 body {
-  background: url('/assets/bubbleBG.jpeg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+	background: url('/assets/bubbleBG.jpeg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
 }
 /* Setup form styles */
 
 .welcome {
-  color: white;
-  font-size: 2.5rem;
+	color: white;
+	font-size: 2.5rem;
 }
 /* chat view styles */
 
 .chat-window {
-  background-color: white;
-  height: 400px;
-  overflow-y: auto;
+	background-color: white;
+	height: 400px;
+	overflow-y: auto;
 }
 
+.chat-bubble {
+	background-color: #c9c9c9;
+	padding: 10px;
+	padding-left: 40px;
+	width: 50%;
+	margin: auto;
+	border-radius: 100px;
+	margin-top: 20px;
+}
+
+.chat-bar {
+	display: block;
+	position: fixed;
+	bottom: 10px;
+	z-index: 1;
+	width: 85%;
+	border-radius: 20px;
+	background-color: #8c6e97;
+}
+
+#message {
+	width: 50%;
+	margin: auto;
+}
+
+#send {
+	display: block;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
 .display-4 {
-  color: white;
+	color: white;
 }
 
 /*login view styles  */
 
 .login-view {
-  color: white;
+	color: white;
 }
 
 .checkbox {
-  color: white;
+	color: white;
 }
 .form-floating:focus-within {
-  z-index: 2;
+	z-index: 2;
 }
 .copyright p {
-  color: white;
-  font-size: x-large;
-  
+	color: white;
+	font-size: x-large;
 }
 footer {
-  position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background-color: #16116300;
-    text-align: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	background-color: #16116300;
+	text-align: center;
 }
 
 /* Dashboard */
