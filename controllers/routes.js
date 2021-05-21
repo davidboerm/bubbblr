@@ -35,7 +35,7 @@ router.get('/setup', withAuth, async (req, res) => {
 		});
 
 		const messages = messageData.map((message) => message.get({ plain: true }));
-		res.render('setup', { messages, logged_in: req.session.logged_in, user_id: req.session.user_id });
+		res.render('setup', { messages, logged_in: req.session.logged_in, name: req.session.name });
 	} catch (err) {
 		console.log(err);
 		res.status(500).json(err);
@@ -63,7 +63,8 @@ router.get('/project/:id', withAuth, async (req, res) => {
 					include: [ { model: User, exclude: [ 'password' ] }, { model: Tag, attributes: [ 'tag_name' ] } ]
 				},
 				{ model: Tag, attributes: [ 'tag_name' ] }
-			]
+			],
+			order: [ [ { model: Message }, 'created_at', 'DESC' ] ]
 		});
 
 		req.session.save(() => {
