@@ -10,7 +10,6 @@ async function addMessages(message) {
 		.then((response) => response.json())
 		.then((data) => {
 			userName = data.name;
-			// socket.emit('inputtedMessage', data.user_id, data.chat_text, data.createdAt);
 		});
 
 	$('#messages').prepend(

@@ -29,11 +29,27 @@ body {
 	margin-top: 20px;
 }
 
-.message-check {
-	float: left;
-	top: 10px;
+.chat-bar {
+	display: block;
+	position: fixed;
+	bottom: 10px;
+	z-index: 1;
+	width: 85%;
+	border-radius: 20px;
+	background-color: #8c6e97;
 }
 
+#message {
+	width: 50%;
+	margin: auto;
+}
+
+#send {
+	display: block;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
 .display-4 {
 	color: white;
 }
