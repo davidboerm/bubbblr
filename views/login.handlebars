@@ -1,33 +1,36 @@
-<div class="login-card">
-  <form class="form login-form">
-    <h1 class="h3 my-4 fw-normal login-view">Please sign in</h1>
-    <div class="form-floating">
-      <input type="email" class="form-control" id="email-login" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+<div class="login-forms mx-auto col-md-6">
+    <div class="login-form">
+        <form class="form login-form">
+            <h1 class="my-4 fw-normal login-view">Please sign in</h1>
+            <div class="form-floating">
+                <input type="email" class="form-control" id="email-login" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="password-login" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <button class="btn btn-lg btn-primary mt-3 login-form" type="submit">Sign in</button>
+        </form>
     </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="password-login" placeholder="Password">
-      <label for="floatingPassword">Password</label>
+    <div class="pt-5">
+        <form class="form signup-form">
+            <div class="form-floating">
+                <input class="form-input form-control" type="text" id="username-signup" />
+                <label for="username-signup">Username</label>
+            </div>
+            <div class="form-floating">
+                <input type="email" class="form-control" id="email-signup" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input class="form-input form-control" type="password" id="password-signup"
+                    placeholder="Password" />
+                <label for="password-signup">Password</label>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary mt-3 signup-form" type="submit">Sign up</button>
+            </div>
+        </form>
     </div>
-    <button class="btn btn-lg btn-primary mt-3 login-form" type="submit">Sign in</button>
-  </form>
-</div>
-<div class="login-card pt-5">
-  <form class="form signup-form">
-    <div class="form-floating">
-      <input class="form-input form-control" type="text" id="username-signup" />
-      <label for="username-signup">Username</label>
-    </div>
-    <div class="form-floating">
-      <input type="email" class="form-control" id="email-signup" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input class="form-input form-control" type="password" id="password-signup" placeholder="Password" />
-      <label for="password-signup">Password</label>
-    </div>
-    <div class="form-group">
-      <button class="btn btn-lg btn-primary signup-form" type="submit">Sign up</button>
-    </div>
-  </form>
 </div>
