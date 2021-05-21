@@ -1,5 +1,5 @@
 body {
-	background: url('/assets/bubbleBG.jpeg') no-repeat center center fixed;
+	background: url('/public/assets/bubbleBG.jpeg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
@@ -15,7 +15,7 @@ padding-bottom: 100px;
 .welcome {
 
   color: white;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
 
 }
