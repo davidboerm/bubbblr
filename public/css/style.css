@@ -17,7 +17,6 @@ padding-bottom: 100px;
   color: white;
   font-size: 2.5rem;
   font-weight: bold;
-
 }
 
 /* chat view styles */
@@ -80,20 +79,29 @@ padding-bottom: 100px;
   
 }
 footer {
-  
     bottom: 0;
     width: 100%;
     height: 60px;
     line-height: 60px;
     background-color: #16116300;
     text-align: center;
-
 }
 
 /* Dashboard */
 
-.dash-card {margin-top: 3rem;}
+.dash-card {
+  margin-top: 3rem;
+}
+
 .project-cards {
   min-width: fit-content;
   max-width: 150px;
+}
+
+.project-car-body {
+  padding: 0;
+}
+
+.navbar-brand {
+  width: 125px;
 }
