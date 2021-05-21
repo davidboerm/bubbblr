@@ -6,6 +6,20 @@
     </div>
   </div>
   
+
+  {{#each projects as |project|}}
+
+  <div class="card w-sm-50">
+    <div class="card-body">
+      <h5 class="card-title">{{project.name}}</h5>
+      <p class="card-text">{{project.description}}</p>
+      <a href="/project/{{project.id}}" class="btn btn-primary">Join Chat</a>
+      <a href="/outline/{{project.id}}" class="btn btn-primary">View Outline</a>
+    </div>
+  </div>
+
+  {{/each}}
+  
   <div class="card text-center">
     <div class="card-body">
       <h5 class="card-title">Chat</h5>

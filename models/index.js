@@ -35,6 +35,14 @@ Project.hasMany(Message, {
 	foreignKey: 'project_id'
 });
 
+Project.hasMany(Tag, {
+	foreignKey: 'project_id'
+});
+
+Tag.belongsTo(Project, {
+	foreignKey: 'project_id'
+});
+
 Message.belongsTo(Project, {
 	foreignKey: 'project_id',
 	onDelete: 'CASCADE'
