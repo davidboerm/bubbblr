@@ -69,10 +69,6 @@ router.get('/project/:id', withAuth, async (req, res) => {
 		const projectData = await Project.findByPk(req.params.id, {
 			include: [
 				{
-					model: User,
-					exclude: [ 'password' ]
-				},
-				{
 					model: Message,
 					include: [ { model: User, exclude: [ 'password' ] }, { model: Tag } ]
 				}
@@ -80,7 +76,7 @@ router.get('/project/:id', withAuth, async (req, res) => {
 		});
 
 		const project = projectData.get({ plain: true });
-		res.render('project', { project, logged_in: req.session.logged_in, user_id: req.session.user_id });
+		res.render('chat', { project, logged_in: req.session.logged_in, user_id: req.session.user_id });
 	} catch (err) {
 		console.log(err);
 		res.status(500).json(err);

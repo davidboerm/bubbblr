@@ -1,5 +1,3 @@
-const { Tag } = require('../../models');
-
 const projectSetup = async (event) => {
 	event.preventDefault();
 
@@ -10,7 +8,12 @@ const projectSetup = async (event) => {
 		method: 'POST',
 		body: JSON.stringify({ name, description }),
 		headers: { 'Content-Type': 'application/json' }
-	});
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			console.log('data: ' + data.id);
+			document.location.replace(`/project/${data.id}`);
+		});
 
 	// for(i = 0; i < tags.length; i++){
 	//     var tag_name = tags[i];
@@ -23,4 +26,4 @@ const projectSetup = async (event) => {
 	// }
 };
 
-document.querySelector('.submit-setup').addEventListener('submit', projectSetup);
+document.querySelector('.new-project-form').addEventListener('submit', projectSetup);
