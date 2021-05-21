@@ -75,6 +75,9 @@ router.get('/project/:id', withAuth, async (req, res) => {
 			]
 		});
 
+		req.session.save(() => {
+			req.session.currentProjectId = req.params.id;
+		});
 		const project = projectData.get({ plain: true });
 		res.render('chat', { project, logged_in: req.session.logged_in, user_id: req.session.user_id });
 	} catch (err) {
