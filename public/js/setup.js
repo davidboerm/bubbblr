@@ -1,5 +1,9 @@
 var tagCount = 0;
 
+function eraseText() {
+    document.getElementById("output").value = "";
+}
+
 const tagSubmit = (event) => {
 	event.preventDefault();
 

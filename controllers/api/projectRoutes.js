@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 				}
 			]
 		});
-
+		
 		const projects = projectData.map((project) => project.get({ plain: true }));
 		res.status(200).json(projects);
 	} catch (err) {

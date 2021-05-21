@@ -1,9 +1,9 @@
 body {
-  background: url('/assets/bubbleBG.jpeg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+	background: url('/assets/bubbleBG.jpeg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
 }
 
 main {
@@ -13,33 +13,67 @@ padding-bottom: 100px;
 /* Setup form styles */
 
 .welcome {
+
   color: white;
   font-size: 3rem;
   font-weight: bold;
+
 }
 
 /* chat view styles */
 
 .chat-window {
-  background-color: white;
-  height: 400px;
-  overflow-y: auto;
+	background-color: white;
+	height: 400px;
+	overflow-y: auto;
 }
 
+.chat-bubble {
+	background-color: #c9c9c9;
+	padding: 10px;
+	padding-left: 40px;
+	width: 50%;
+	margin: auto;
+	border-radius: 100px;
+	margin-top: 20px;
+}
+
+.chat-bar {
+	display: block;
+	position: fixed;
+	bottom: 10px;
+	z-index: 1;
+	width: 85%;
+	border-radius: 20px;
+	background-color: #8c6e97;
+}
+
+#message {
+	width: 50%;
+	margin: auto;
+}
+
+#send {
+	display: block;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
 .display-4 {
-  color: white;
+	color: white;
 }
 
 /*login view styles  */
 
 .login-view {
-  color: white;
+	color: white;
 }
 
 
 .form-floating:focus-within {
-  z-index: 2;
+	z-index: 2;
 }
+
 .copyright span {
   color: white;
   font-size: x-large;
@@ -53,6 +87,7 @@ footer {
     line-height: 60px;
     background-color: #16116300;
     text-align: center;
+
 }
 
 /* Dashboard */

@@ -22,6 +22,9 @@ Message.init(
 				key: 'id'
 			}
 		},
+		isSelected: {
+			type: DataTypes.BOOLEAN,
+		},
 		tag_id: {
 			type: DataTypes.INTEGER,
 			references: {

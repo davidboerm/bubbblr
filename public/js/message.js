@@ -1,5 +1,8 @@
 async function addMessages(message) {
 	let userName;
+	const date = new Date();
+	let currentDate = date.toLocaleDateString();
+	let currentTime = date.toLocaleTimeString();
 	const response = await fetch(`/api/users/${message.user_id}`, {
 		method: 'GET',
 		headers: { 'Content-Type': 'application/json' }
@@ -7,14 +10,16 @@ async function addMessages(message) {
 		.then((response) => response.json())
 		.then((data) => {
 			userName = data.name;
-			// socket.emit('inputtedMessage', data.user_id, data.chat_text, data.createdAt);
 		});
 
-	$('#messages').prepend(`
-	<h4> ${userName} </h4>
-    <p>  ${message.chat_text} </p>
-    <p>  ${message.updatedAt} </p>
-`);
+	$('#messages').prepend(
+		`<div class= "chat-bubble">
+
+		<h4>${message.chat_text} </h4>
+	   <h6> Posted by: ${userName} </h6>
+	   <p>  ${currentDate} at ${currentTime} </p>
+	 </div>`
+	);
 }
 
 const sendMessage = async (event) => {
