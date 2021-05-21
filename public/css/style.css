@@ -1,41 +1,51 @@
 body {
-	background: url('/assets/bubbleBG.jpeg') no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
+  background: url('/assets/bubbleBG.jpeg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+/* Setup form styles */
+
+.welcome {
+  color: white;
+  font-size: 2.5rem;
+}
+/* chat view styles */
+
+.chat-window {
+  background-color: white;
+  height: 400px;
+  overflow-y: auto;
 }
 
+.display-4 {
+  color: white;
+}
+
+/*login view styles  */
+
+.login-view {
+  color: white;
+}
+
+.checkbox {
+  color: white;
+}
+.form-floating:focus-within {
+  z-index: 2;
+}
+.copyright p {
+  color: white;
+  font-size: x-large;
+  
+}
 footer {
-	text-align: center;
-	padding: 3px;
-}
-
-/* signin form styles */
-/* .form-signin {
+  position: absolute;
+    bottom: 0;
     width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
-    color:white
-  }
-  
-  .form-signin .checkbox {
-    font-weight: 400;
-  }
-  
-  .form-signin .form-floating:focus-within {
-    z-index: 2;
-  }
-  
-  .form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  
-  .form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  } */
+    height: 60px;
+    line-height: 60px;
+    background-color: #16116300;
+    text-align: center;
+}
