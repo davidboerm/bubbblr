@@ -146,11 +146,15 @@ footer {
 }
 
 .outline-row {
-	justify-content: center;
+	align-content: center;
 }
 
-.outline-card-header {
+.outline-tag {
 background-color: white;
 width: fit-content;
 border-radius: 1rem;
+}
+
+.row-outline {
+	justify-content: center;
 }

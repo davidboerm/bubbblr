@@ -1,30 +1,21 @@
 <div class="row">
-  <div class="col-md-6"><a href="/dashboard" class="btn btn-warning my-3">⇦ Return to Dashboard</a>
+  <div><a href="/dashboard" class="btn btn-warning my-3">⇦ Return to Dashboard</a>
     <div class="outline-title">
       <h2> {{project.name}} </h2>
       <h4> {{project.description}} </h4>
     </div>
+    <div class="row d-flex justify-content-center row-outline">
+      <div class="col-6 justify-content-center">
+        {{#each project.tags as |tag|}}
 
-
-
-
-
-    <div class="col">
-      {{#each project.tags as |tag|}}
-
-      <div class="col outline-card-header py-2 px-5">
-        <h2>{{tag.tag_name}}</h2>
+        <div class="outline-tag py-2 px-5 mb-2">
+          <h2>{{tag.tag_name}}</h2>
+        </div>
+        {{#each tag.messages as |message|}}
+        <div class="outline-item m-2">{{message.chat_text}}</div>
+        {{/each}}
+        {{/each}}
       </div>
-
-
-
-      {{#each tag.messages as |message|}}
-      <div class="outline-item m-2">{{message.chat_text}}</div>
-      {{/each}}
-      {{/each}}
-
-
-
     </div>
   </div>
 </div>
