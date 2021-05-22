@@ -46,7 +46,7 @@ const projectSetup = async (event) => {
 					headers: { 'Content-Type': 'application/json' }
 				}).then((res) => res.json());
 			}
-			document.location.replace(`/project/${data.id}`);
+			document.location.replace('/dashboard');
 		});
 };
 
