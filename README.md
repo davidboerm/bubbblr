@@ -6,6 +6,6 @@ Project controllers were headed by JP Eiler and socket.io expert.
 Project views were headed by David Boerm.
 Project models were headed by Joel Cunningham.
 
-https://git.heroku.com/bubbblr.git
+https://bubbblr.herokuapp.com/
 
 <img src="./public/assets/screenshot.png" alt="Bubbblr screenshot"></img>
