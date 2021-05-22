@@ -25,10 +25,10 @@ async function addMessages(message) {
 const sendMessage = async (event) => {
 	event.preventDefault();
 	const chat_text = document.querySelector('#message').value;
-
+	const projectId = document.querySelector('#send').getAttribute('data-project_id')
 	const response = await fetch('/api/messages', {
 		method: 'POST',
-		body: JSON.stringify({ chat_text }),
+		body: JSON.stringify({ chat_text, project_id: projectId }),
 		headers: { 'Content-Type': 'application/json' }
 	})
 		.then((response) => response.json())
