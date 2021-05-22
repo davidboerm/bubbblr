@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 					include: [ { model: User, exclude: [ 'password' ] }, { model: Tag } ]
 				}
 			],
-			exclude: ['user']
+			exclude: [ 'user' ]
 		});
 		const projects = projectData.map((project) => project.get({ plain: true }));
 		res.status(200).json(projects);
@@ -27,10 +27,9 @@ router.get('/:id', async (req, res) => {
 					model: Message,
 					include: [ { model: User, exclude: [ 'password' ] }, { model: Tag } ]
 				}
-			],
-			exclude: ['user']
+			]
 		});
-		const project = projectData.get({ plain: true});
+		const project = projectData.get({ plain: true });
 		res.status(200).json(project);
 	} catch (err) {
 		console.log(err);
@@ -73,6 +72,21 @@ router.put('/:id', async (req, res) => {
 	}
 });
 
+router.delete('/:id', async (req, res) => {
+	try {
+		const projectData = await Project.destroy({
+			where: { id: req.params.id }
+		});
+		if (!projectData[0]) {
+			res.status(404).json({ message: 'No project found with this ID' });
+			return;
+		}
+		res.status(200).json(projectData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 module.exports = router;
 
 // const router = require('express').Router();
@@ -92,7 +106,7 @@ module.exports = router;
 // 				}
 // 			]
 // 		});
-		
+
 // 		const projects = projectData.map((project) => project.get({ plain: true }));
 // 		res.status(200).json(projects);
 // 	} catch (err) {
@@ -165,6 +179,5 @@ module.exports = router;
 // 		res.status(500).json(err);
 // 	}
 // });
-
 
 // module.exports = router;
