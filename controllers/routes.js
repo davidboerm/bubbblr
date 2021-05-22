@@ -92,7 +92,11 @@ router.get('/outline/:id', withAuth, async (req, res) => {
 					],
 					attributes: [ 'chat_text', 'createdAt' ]
 				},
-				{ model: Tag, attributes: [ 'tag_name' ] }
+				{
+					model: Tag,
+					include: [ { model: Message } ],
+					attributes: [ 'tag_name' ]
+				}
 			]
 		});
 
