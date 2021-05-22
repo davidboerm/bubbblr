@@ -62,7 +62,7 @@ router.get('/project/:id', withAuth, async (req, res) => {
 					model: Message,
 					include: [ { model: User, exclude: [ 'password' ] }, { model: Tag, attributes: [ 'tag_name' ] } ]
 				},
-				{ model: Tag, attributes: [ 'tag_name' ] }
+				{ model: Tag, attributes: [ 'tag_name', 'id' ] }
 			],
 			order: [ [ { model: Message }, 'created_at', 'DESC' ] ]
 		});
@@ -92,7 +92,11 @@ router.get('/outline/:id', withAuth, async (req, res) => {
 					],
 					attributes: [ 'chat_text', 'createdAt' ]
 				},
-				{ model: Tag, attributes: [ 'tag_name' ] }
+				{
+					model: Tag,
+					include: [ { model: Message } ],
+					attributes: [ 'tag_name' ]
+				}
 			]
 		});
 
