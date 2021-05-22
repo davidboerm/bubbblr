@@ -8,8 +8,9 @@
    <h4> {{project.name}} </h4>
    <p>  {{project.description}} </p>
    
-   <h5> {{project.messages}} </h5>
-   
+   {{#each project.messages as |message|}}
+   <h5> {{message.chat_text}} </h5>
+   {{/each}}
 
 </div>
 </div>
