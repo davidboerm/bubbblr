@@ -1,48 +1,28 @@
-<div>
-  <a href="/dashboard" class="btn btn-warning my-3">⇦ Return to Dashboard</a>
+<div class="row">
+  <div class="col-md-6"><a href="/dashboard" class="btn btn-warning my-3">⇦ Return to Dashboard</a>
+    <div class="outline-title">
+      <h2> {{project.name}} </h2>
+      <h4> {{project.description}} </h4>
+    </div>
 
 
 
 
-  <div>
-    <h2> {{project.name}} </h2>
-    <h4> {{project.description}} </h4>
+
+    <div class="col">
+      {{#each project.tags as |tag|}}
+
+      <div class="col outline-card-header py-2 px-5">
+        <h2>{{tag.tag_name}}</h2>
+      </div>
+
+
+      {{#each tag.messages as |message|}}
+      <div class="outline-item m-2">{{message.chat_text}}</div>
+      {{/each}}
+      {{/each}}
+
+
+    </div>
   </div>
-  <div id="projects" class="card project-outline"></div>
-
-  {{!-- Getting Project Tags, and within each project tag, displaying messages for those Tags --}}
-  {{#each project.tags as |tag|}}
-  <div class="card-header tag-header">
-    <h2>{{tag.tag_name}}
-  </div>
-  </h2>
-  <ul class="list-group list-group-flush">
-    {{#each tag.messages as |message|}}</li>
-    <li class="list-group-item">{{message.chat_text}}</li>
-    {{/each}}
-    {{/each }}
-
 </div>
-
-
-
-{{!-- <div class="card" style="width: 18rem;">
-  <div class="card-header">
-    Featured
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-</div>
-
-
-
-<div class="card" style="width: 18rem;">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-</div> --}}
