@@ -8,6 +8,11 @@
    <h4> {{project.name}} </h4>
    <p>  {{project.description}} </p>
    
+
+   {{#each project.tags as |tag|}}
+     <h5> {{tag.tag_name}} </h5>
+     {{/each }}
+
    {{#each project.messages as |message|}}
    <h5> {{message.chat_text}} </h5>
    {{/each}}

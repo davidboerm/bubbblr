@@ -21,10 +21,13 @@
  <textarea id = "message" class="form-control" placeholder="Your Message Here" onfocus="this.value=''">
    </textarea>
             </textarea>
-            
+           
          <select name="message" id="tag">
-         <option value="tag">{{tagName}}</option>
+         {{#each project.tags as |tag|}} 
+         <option value="tag" class="{{tag.id}}">{{tag.tag_name}}</option>
+         {{/each}}
           </select>
+          
          
  <br>
  <button id="send" class="btn btn-success" data-project_id="{{project.id}}" >Send</button>
