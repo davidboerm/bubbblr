@@ -1,6 +1,6 @@
 const deleteHandler = async (event) => {
 	const project_id = $(event.currentTarget).attr('data-project_id');
-	const response = await fetch(`/api/projects`, {
+	const response = await fetch(`/api/projects/${project_id}`, {
 		method: 'DELETE',
 		headers: { 'Content-Type': 'application/json' }
 	});

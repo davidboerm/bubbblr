@@ -32,11 +32,13 @@ User.hasOne(Role, {
 });
 
 Project.hasMany(Message, {
-	foreignKey: 'project_id'
+	foreignKey: 'project_id',
+	onDelete: 'CASCADE'
 });
 
 Project.hasMany(Tag, {
-	foreignKey: 'project_id'
+	foreignKey: 'project_id',
+	onDelete: 'CASCADE'
 });
 
 Tag.belongsTo(Project, {
@@ -44,8 +46,7 @@ Tag.belongsTo(Project, {
 });
 
 Message.belongsTo(Project, {
-	foreignKey: 'project_id',
-	onDelete: 'CASCADE'
+	foreignKey: 'project_id'
 });
 
 module.exports = { User, Message, Role, Tag, Project };

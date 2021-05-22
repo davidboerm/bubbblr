@@ -77,10 +77,7 @@ router.delete('/:id', async (req, res) => {
 		const projectData = await Project.destroy({
 			where: { id: req.params.id }
 		});
-		if (!projectData[0]) {
-			res.status(404).json({ message: 'No project found with this ID' });
-			return;
-		}
+
 		res.status(200).json(projectData);
 	} catch (err) {
 		res.status(500).json(err);
