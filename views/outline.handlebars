@@ -8,14 +8,13 @@
    <h4> {{project.name}} </h4>
    <p>  {{project.description}} </p>
    
-
+//Getting Project Tags, and within each project tag, displaying messages for those Tags
    {{#each project.tags as |tag|}}
      <h5> {{tag.tag_name}} </h5>
+     {{#each tag.messages as |message|}}
+      <h5>{{message.chat_text}}</h5>
+     {{/each}}
      {{/each }}
-
-   {{#each project.messages as |message|}}
-   <h5> {{message.chat_text}} </h5>
-   {{/each}}
 
 </div>
 </div>
