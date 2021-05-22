@@ -5,13 +5,11 @@
  <br>
  <div id="projects">
 
-    <h4> {{project.name}} </h4>
-    <p>  {{project.description}} </p>
-
-    {{#each message.user_id as |message|}}
-      <h4>{{message.chat_text}}</h4>
-   {{/each}}
+   <h4> {{project.name}} </h4>
+   <p>  {{project.description}} </p>
+   
+   <h5> {{project.messages}} </h5>
+   
 
 </div>
 </div>
-<script src="/js/outline.js"></script>

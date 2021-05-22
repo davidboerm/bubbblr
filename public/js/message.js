@@ -37,6 +37,17 @@ const sendMessage = async (event) => {
 		});
 };
 
+async function tagHandeler(tag) {
+		let tagName;
+		await fetch(`/api/tags/1`, {
+			method: 'GET',
+			headers: { 'Content-Type': 'application/json' }
+		}).then((response) => response.json())
+		.then((tag) => {
+			console.log(tag);
+		});
+	}
+	
 document.querySelector('#send').addEventListener('click', sendMessage);
 
 socket.on('sentMessage', addMessages);
