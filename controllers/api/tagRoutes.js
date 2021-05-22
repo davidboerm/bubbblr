@@ -19,12 +19,11 @@ router.get('/:id', async (req, res) => {
 			include: [
 				{
 					model: Message,
-					include: [ { model: Project }, { model: Message } ]
+					include: [ { model: Project } ]
 				}
-			],
-			
+			]
 		});
-		const tag = tagData.get({ plain: true});
+		const tag = tagData.get({ plain: true });
 		res.status(200).json(tag);
 	} catch (err) {
 		console.log(err);
