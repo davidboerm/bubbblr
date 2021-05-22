@@ -13,12 +13,13 @@ async function addMessages(message) {
 		});
 
 	$('#messages').prepend(
-		`<div class= "chat-bubble">
+		`<div class="chat-bubble">
 
 		<h4>${message.chat_text} </h4>
-	   <h6> Posted by: ${userName} </h6>
-	   <p>  ${currentDate} at ${currentTime} </p>
-	 </div>`
+		<h6 class="chat-msg"> ${userName} ❍ <span class="chat-timestamp">${currentDate} at
+			${currentTime} </span></h6>
+
+		</div>`
 	);
 }
 
