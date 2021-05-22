@@ -1,5 +1,6 @@
 async function addMessages(message) {
 	let userName;
+	let tagName;
 	const date = new Date();
 	let currentDate = date.toLocaleDateString();
 	let currentTime = date.toLocaleTimeString();
@@ -12,9 +13,18 @@ async function addMessages(message) {
 			userName = data.name;
 		});
 
+	const tagResponse = await fetch(`/api/messages/${message.id}`, {
+		method: 'GET',
+		headers: { 'Content-Type': 'application/json' }
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			tagName = data.tag.tag_name;
+		});
+
 	$('#messages').prepend(
 		`<div class="chat-bubble">
-
+		<h6>${tagName}<h6>
 		<h4>${message.chat_text} </h4>
 		<h6 class="chat-msg"> ${userName} ❍ <span class="chat-timestamp">${currentDate} at
 			${currentTime} </span></h6>
