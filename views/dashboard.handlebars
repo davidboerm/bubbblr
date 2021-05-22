@@ -16,11 +16,16 @@
         <h5 class="card-title proj-title">{{name}}</h5>
         <p class="card-text proj-desc text-break">{{description}}</p>
         <a href="/project/{{id}}" class="btn btn-warning btn-sm mb-1">Join Chat</a><br>
-        <a href="/outline/{{id}}" class="btn btn-warning btn-sm">View Outline</a>
+        <a href="/outline/{{id}}" class="btn btn-warning btn-sm mb-1">View Outline</a><br>
+
+        <button class="btn btn-danger btn-sm delete-button" data-project_id="{{project.id}}">Delete</button>
       </div>
+      
     </div>
 
     {{/each}}
 
   </div>
 </div>
+
+<script src="/js/delete.js"></script>

@@ -1,24 +1,23 @@
-async function outlineHandeler(project) {
+// async function outlineHandeler(project) {
 
-		let projectName;
-		await fetch(`/api/projects/1`, {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' }
-		}).then((response) => response.json())
-		.then((project) => {
-			console.log(project);
-		});
-		$('#project').prepend(
-			`<div class= "chat-bubble">
-	
-			<h4> ${project} </h4>
+// 		let projectName;
+// 		await fetch(`/api/projects/1`, {
+// 			method: 'GET',
+// 			headers: { 'Content-Type': 'application/json' }
+// 		}).then((response) => response.json())
+// 		.then((project) => {
+// 			console.log(project);
+// 		});
+// 		$('#project').prepend(
+// 			`<div class= "chat-bubble">
 
-		 </div>`
-		);
-	}
+// 			<h4> ${project} </h4>
 
+// 		 </div>`
+// 		);
+// 	}
 
-	outlineHandeler();
+// 	outlineHandeler();
 
 // async function outlineHandeler(project) {
 // 	let projectName;
@@ -48,4 +47,3 @@ async function outlineHandeler(project) {
 // 	`)
 // }
 // outlineMessageHandeler();
-
