@@ -1,38 +1,41 @@
+<div class="col-md-8">
+  <a href="/dashboard" class="btn btn-warning my-3">⇦ Return to Dashboard</a>
+</div>
 
-<div class="container">
- 
- <div id="messages">
- {{#each project.messages as |message|}}
- {{!-- <h4> {{message.tag.tag_name}} </h4> --}}
-   
-      <div class= "chat-bubble">
 
-       <h4>{{message.chat_text}} </h4>
-      <h6> Posted by: {{message.user.name}} </h6>
-      <p>  {{format_date message.createdAt}} at {{format_time message.createdAt}} </p>
-    </div>
+<div class="chat-bar col-6 mx-auto">
+  <div>
+    <textarea id="message" class="form-control m-2" placeholder="Your Message Here" onfocus="this.value=''"></textarea>
+  </div>
+
+  <div class="row check-send">
     
- {{/each}}
-</div>
+      <div class="col choose-tag"><h5>Choose Tags</h5></div>
+      <div><select name="message" id="tag"></div>
+        {{#each project.tags as |tag|}}
+        <option value="tag" class="{{tag.id}}">{{tag.tag_name}}</option>
+        {{/each}}
+      </select>
+    
+    <div class="col"><button id="send" class="btn btn-warning chat-btn" data-project_id="{{project.id}}">Send</button>
+    </div>
+  </div>
 
-<div class="row chat-bar">
-
-   <br>
- <textarea id = "message" class="form-control" placeholder="Your Message Here" onfocus="this.value=''">
-   </textarea>
-            </textarea>
-           
-         <select name="message" id="tag">
-         {{#each project.tags as |tag|}} 
-         <option value="tag" class="{{tag.id}}">{{tag.tag_name}}</option>
-         {{/each}}
-          </select>
-          
-         
- <br>
- <button id="send" class="btn btn-success" data-project_id="{{project.id}}" >Send</button>
-<br>
- </div>
 </div>
 
 
+
+<div id="messages" class="chat-window">
+  {{#each project.messages as |message|}}
+  {{!-- <h4> {{message.tag.tag_name}} </h4> --}}
+
+  <div class="chat-bubble">
+
+    <h4>{{message.chat_text}} </h4>
+    <h6 class="chat-msg"> {{message.user.name}} ❍ <span class="chat-timestamp">{{format_date message.createdAt}} at
+        {{format_time message.createdAt}} </span></h6>
+
+  </div>
+
+  {{/each}}
+</div>
