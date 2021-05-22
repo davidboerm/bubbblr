@@ -10,6 +10,17 @@ main {
 padding-bottom: 100px;
 }
 
+.btn {
+	background-color: rgb(110, 0, 144);
+	color: white;
+}
+
+select {
+
+}
+
+
+
 /* Setup form styles */
 
 .welcome {
@@ -19,45 +30,50 @@ padding-bottom: 100px;
   font-weight: bold;
 }
 
+.project-desc 
+
 /* chat view styles */
 
 .chat-window {
 	background-color: white;
-	height: 400px;
-	overflow-y: auto;
+	
+	overflow-y:scroll;
 }
 
 .chat-bubble {
-	background-color: #c9c9c9;
+	background-color: rgba(255, 255, 255, 0.848);
 	padding: 10px;
+	padding-right: 40px;
 	padding-left: 40px;
-	width: 50%;
+	width:max-content;
 	margin: auto;
 	border-radius: 100px;
 	margin-top: 20px;
+	border-color: white;
+	border-width: 1;
 }
 
 .chat-bar {
-	display: block;
-	position: fixed;
-	bottom: 10px;
-	z-index: 1;
-	width: 85%;
-	border-radius: 20px;
-	background-color: #8c6e97;
+	
 }
 
-#message {
-	width: 50%;
-	margin: auto;
+
+
+.chat-timestamp {
+	font-size:0.75rem;
 }
 
-#send {
-	display: block;
-	width: 50%;
-	margin-left: auto;
-	margin-right: auto;
+.check-send {
+	display: inline-block;
 }
+
+.tag-select {
+	display: inline-block;
+}
+
+
+
+
 .display-4 {
 	color: white;
 }
@@ -79,6 +95,7 @@ padding-bottom: 100px;
   
 }
 footer {
+	position:static;
     bottom: 0;
     width: 100%;
     height: 60px;
@@ -87,8 +104,13 @@ footer {
     text-align: center;
 }
 
+
+
 /* Dashboard */
 
+.choose-tag {
+	color: white
+}
 .dash-card {
   margin-top: 3rem;
 }
@@ -98,10 +120,41 @@ footer {
   max-width: 150px;
 }
 
-.project-car-body {
-  padding: 0;
+.project-card-body {
+  
 }
 
 .navbar-brand {
   width: 125px;
+}
+
+
+/* Outline View */
+
+
+
+.list-group-item {
+	background-color: rgba(255, 255, 255, 0.855);
+	padding: 10px;
+	padding-right: auto;
+	padding-left: auto;
+	width:max-content;
+	
+	border-radius: 1rem;
+	
+	
+	
+}
+
+.tag-header {
+	background-color: rgba(255, 255, 255, 0.855);
+	padding: 10px;
+	padding-right: 40px;
+	padding-left: 40px;
+	width:40%;
+	margin: auto;
+	border-radius: 2rem;
+	margin-top: 20px;
+	text-align: center;
+	
 }
