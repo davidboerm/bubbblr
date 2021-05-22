@@ -15,12 +15,6 @@ padding-bottom: 100px;
 	color: white;
 }
 
-select {
-
-}
-
-
-
 /* Setup form styles */
 
 .welcome {
@@ -51,10 +45,6 @@ select {
 	margin-top: 20px;
 	border-color: white;
 	border-width: 1;
-}
-
-.chat-bar {
-	
 }
 
 
@@ -120,9 +110,7 @@ footer {
   max-width: 150px;
 }
 
-.project-card-body {
-  
-}
+
 
 .navbar-brand {
   width: 125px;
@@ -131,19 +119,18 @@ footer {
 
 /* Outline View */
 
-
-
-.list-group-item {
-	background-color: rgba(255, 255, 255, 0.855);
+.outline-item {
+	background-color: rgba(77, 20, 103, 0.56);
 	padding: 10px;
-	padding-right: auto;
-	padding-left: auto;
 	width:max-content;
+	color: white;border-radius: 1rem;;
+
 	
-	border-radius: 1rem;
 	
-	
-	
+}
+
+.outline-title {
+	color: white;
 }
 
 .tag-header {
@@ -153,8 +140,17 @@ footer {
 	padding-left: 40px;
 	width:40%;
 	margin: auto;
-	border-radius: 2rem;
+	
 	margin-top: 20px;
 	text-align: center;
-	
+}
+
+.outline-row {
+	justify-content: center;
+}
+
+.outline-card-header {
+background-color: white;
+width: fit-content;
+border-radius: 1rem;
 }
