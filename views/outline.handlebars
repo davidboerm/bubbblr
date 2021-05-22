@@ -1,20 +1,48 @@
+<div>
+  <a href="/dashboard" class="btn btn-warning my-3">⇦ Return to Dashboard</a>
 
-<div class="container">
- <br>
- <div class="jumbotron">
- <br>
- <div id="projects">
 
-   <h4> {{project.name}} </h4>
-   <p>  {{project.description}} </p>
-   
-//Getting Project Tags, and within each project tag, displaying messages for those Tags
-   {{#each project.tags as |tag|}}
-     <h5> {{tag.tag_name}} </h5>
-     {{#each tag.messages as |message|}}
-      <h5>{{message.chat_text}}</h5>
-     {{/each}}
-     {{/each }}
+
+
+  <div>
+    <h2> {{project.name}} </h2>
+    <h4> {{project.description}} </h4>
+  </div>
+  <div id="projects" class="card project-outline"></div>
+
+  {{!-- Getting Project Tags, and within each project tag, displaying messages for those Tags --}}
+  {{#each project.tags as |tag|}}
+  <div class="card-header tag-header">
+    <h2>{{tag.tag_name}}
+  </div>
+  </h2>
+  <ul class="list-group list-group-flush">
+    {{#each tag.messages as |message|}}</li>
+    <li class="list-group-item">{{message.chat_text}}</li>
+    {{/each}}
+    {{/each }}
 
 </div>
+
+
+
+{{!-- <div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Featured
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
 </div>
+
+
+
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+</div> --}}
