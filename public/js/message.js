@@ -25,10 +25,12 @@ async function addMessages(message) {
 const sendMessage = async (event) => {
 	event.preventDefault();
 	const chat_text = document.querySelector('#message').value;
-	const projectId = document.querySelector('#send').getAttribute('data-project_id')
+	const project_id = document.querySelector('#send').getAttribute('data-project_id');
+	const tag_id = $('select[name="message"] :selected').attr('class');
+
 	const response = await fetch('/api/messages', {
 		method: 'POST',
-		body: JSON.stringify({ chat_text, project_id: projectId }),
+		body: JSON.stringify({ chat_text, project_id: project_id, tag_id: tag_id }),
 		headers: { 'Content-Type': 'application/json' }
 	})
 		.then((response) => response.json())
@@ -37,17 +39,6 @@ const sendMessage = async (event) => {
 		});
 };
 
-async function tagHandeler(tag) {
-		let tagName;
-		await fetch(`/api/tags/1`, {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' }
-		}).then((response) => response.json())
-		.then((tag) => {
-			console.log(tag);
-		});
-	}
-	
 document.querySelector('#send').addEventListener('click', sendMessage);
 
 socket.on('sentMessage', addMessages);
